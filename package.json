@@ -4,7 +4,8 @@
   "description": "Node demo showing how to store data into a MongoDB database",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -e coffee,js,ejs,html,css app.js"
   },
   "keywords": [
     "node",
@@ -18,6 +19,7 @@
     "body-parser": "^1.15.2",
     "ejs": "^3.0.1",
     "express": "^4.14.0",
-    "mongoose": "^4.6.7"
+    "mongoose": "^4.6.7",
+    "nodemon": "^2.0.7"
   }
 }

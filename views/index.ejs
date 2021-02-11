@@ -4,20 +4,47 @@
         <title>Intro to Node and MongoDB</title>
     </head>
 
-    <body>
+    <body onload="loader()">
+    <script>
+        function loader(){
+
+        }
+    </script>    
         <h1>Into to Node and MongoDB</h1>
-        <form method="post" action="/addname">
+        <form method="post">
             <label>Enter Your Name</label><br>
             <input type="text" name="firstName" placeholder="Enter first name..." required>
             <input type="text" name="lastName" placeholder="Enter last name..." required>
-            <input type="submit" value="Add Name">
+            <input type="text" name="userid" placeholder="user id">
+            <input type="submit" value="Add Name" formaction="/addname">
+            <button formaction="/updatename">updatename</button>
         </form>
         <br>
         <br>
         <p>value : in database : </p>
         <br>
-        <% for(var i = 0; i < wow.length; i++) { %>
+        <!-- <% for(var i = 0; i < wow.length; i++) { %>
         <p> <%=wow[i].firstName%> ____  <%=wow[i].lastName%></p>
-        <%}%>
+        <%}%> -->
+        <table border="5">
+            <tr>
+                <td>Sno.</td>
+                <td>firstName</td>
+                <td>lastName</td>
+                <td>ID</td>
+                <td>Delete</td>
+            </tr>
+            <form method="POST">
+            <% for(let i=0;i<wow.length;++i){ %>
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=wow[i].firstName%></td>
+                    <td><%=wow[i].lastName%></td>
+                    <td><%=wow[i]._id%></td>
+                    <td><button id="<%=wow[i]._id%>" formaction="/deletename/<%=wow[i]._id%>">Delete</button></td>
+                </tr>
+            <%}%>    
+        </form>
+        </table>
     </body>
 </html>
