@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/node-demo",{   useNewUrlParser: true,
+mongoose.connect("mongodb+srv://sam:sam@cluster0.yf7kw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{   useNewUrlParser: true,
 useUnifiedTopology: true,
 useCreateIndex: true,
 useFindAndModify: false });
