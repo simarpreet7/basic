@@ -1,13 +1,13 @@
 var express = require("express");
 var app = express();
-var port = 3000;
+var port =  process.env.PORT ||3000;
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb+srv://sam:sam@cluster0.yf7kw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{   useNewUrlParser: true,
+mongoose.connect(process.env.mongoUrl,{   useNewUrlParser: true,
 useUnifiedTopology: true,
 useCreateIndex: true,
 useFindAndModify: false });
