@@ -2,6 +2,104 @@
 <html>
     <head>
         <title>Intro to Node and MongoDB</title>
+        <style>
+            *{
+                font-family: Arial, Helvetica, sans-serif;
+                box-sizing: border-box;
+            }
+           h1{
+               text-align: center;
+               font-family: Arial, Helvetica, sans-serif;
+           }
+           label{
+               margin-top: 15%;
+           }
+           input[type=text]
+           {
+               padding: 10px;
+               margin:10px 0;
+               box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+               border: 2px solid #eee;
+               width: 100%;
+           }
+           form{
+               width:30%;
+               margin:5% 35% 0 35%;
+           }
+           input[type=submit]
+           {
+               padding:10px;
+               border:none;
+               background-color:#3F51B5;
+               color:#fff;
+               font-weight:600;
+               border-radius:5px;
+               width:100%;
+           }
+        .updatebutton{
+            padding:10px;
+               border:none;
+               background-color:#3F51B5;
+               color:#fff;
+               font-weight:600;
+               border-radius:5px;
+               width:100%;
+               margin-top: 5%;
+        }
+        .tablecontainer{
+            width: 50%;
+            margin:0 35% 0 35%;
+        }
+        table{
+         border-collapse: collapse;
+         text-align: center;
+         vertical-align: middle;
+        
+       }
+       th, td {
+       border: 1px solid transparent;
+       padding: 8px;
+    }
+    caption {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 16px;
+}
+    thead th
+    {
+     width: 25%;
+
+    }
+    .cell-highlight
+    {
+      background-color: rgb(0, 255, 217);
+      font-weight: bold;
+      border-color: #fff;
+
+    }
+    .cell-highlight2
+    {
+      background-color: rgba(27, 30, 30, 0.591);
+      font-weight: bold;
+      color: #fff;
+    }
+    thead{
+      background-color: #333;
+      color: white;
+    }
+        .deletebutton{
+            padding:10px;
+               border:none;
+               background-color: #333;
+               color:#fff;
+               font-weight:600;
+               border-radius:5px;
+               width:100%;
+               margin-top: 5%;
+        }
+        </style>
     </head>
 
     <body onload="loader()">
@@ -10,41 +108,48 @@
 
         }
     </script>    
-        <h1>Into to Node and MongoDB</h1>
+        <h1>Intro to Node and MongoDB</h1>
+        <div class="form">
         <form method="post">
-            <label>Enter Your Name</label><br>
+            <label>Enter Your First Name</label>
             <input type="text" name="firstName" placeholder="Enter first name..." required>
+            <label>Enter Your Last Name</label>
             <input type="text" name="lastName" placeholder="Enter last name..." required>
+            <label>Enter User ID(only during updation)</label>
             <input type="text" name="userid" placeholder="user id">
             <input type="submit" value="Add Name" formaction="/addname">
-            <button formaction="/updatename">updatename</button>
+            <button formaction="/updatename" class="updatebutton">updatename</button>
         </form>
+    </div>
         <br>
         <br>
-        <p>value : in database : </p>
+        <h1>Value : in Database : </h1>
         <br>
         <!-- <% for(var i = 0; i < wow.length; i++) { %>
         <p> <%=wow[i].firstName%> ____  <%=wow[i].lastName%></p>
         <%}%> -->
+        <div class="tablecontainer">
         <table border="5">
             <tr>
-                <td>Sno.</td>
-                <td>firstName</td>
-                <td>lastName</td>
-                <td>ID</td>
-                <td>Delete</td>
+            <th class="cell-highlight2">Sno.</th>
+            <th class="cell-highlight2">First Name</th>
+            <th class="cell-highlight2">Last Name</th>
+            <th class="cell-highlight2">ID</th>
+            <th class="cell-highlight2">Delete</th>
             </tr>
+             
             <form method="POST">
             <% for(let i=0;i<wow.length;++i){ %>
                 <tr>
-                    <td><%=(i+1)%></td>
-                    <td><%=wow[i].firstName%></td>
-                    <td><%=wow[i].lastName%></td>
-                    <td><%=wow[i]._id%></td>
-                    <td><button id="<%=wow[i]._id%>" formaction="/deletename/<%=wow[i]._id%>">Delete</button></td>
+                    <td class="cell-highlight"><%=(i+1)%></td>
+                    <td class="cell-highlight"><%=wow[i].firstName%></td>
+                    <td class="cell-highlight"><%=wow[i].lastName%></td>
+                    <td class="cell-highlight"><%=wow[i]._id%></td>
+                    <td><button id="<%=wow[i]._id%>" formaction="/deletename/<%=wow[i]._id%>" class="deletebutton">Delete</button></td>
                 </tr>
             <%}%>    
         </form>
         </table>
+    </div>
     </body>
 </html>
