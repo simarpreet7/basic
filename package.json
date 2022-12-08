@@ -16,9 +16,9 @@
   "author": "Jennifer Bland",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.2",
+    "body-parser": "^1.20.1",
     "ejs": "^3.0.1",
-    "express": "^4.14.0",
+    "express": "^4.18.2",
     "mongoose": "^5.11.15",
     "nodemon": "^2.0.7"
   }
